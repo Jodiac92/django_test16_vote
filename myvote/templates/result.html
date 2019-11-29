@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>{{question.question_text}}</h2>
+결과 : <br>
+<ul>
+{% for choice in question.choice_set.all  %}
+	<li>
+	{{choice.choice_text}} - {{choice.votes}} {{choice.votes|pluralize}}
+	</li>
+{% endfor  %}
+</ul>
+<a href="{% url 'detail' question.id %}">같은 항목 다시 투표</a>
+<br>
+<a href="/gogo">투표 초기화면</a>
+<br>
+<a href="/">메인 초기화면</a>
+</body>
+</html>
